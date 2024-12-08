@@ -9,7 +9,6 @@ import {
   Legend
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 import ZoomPlugin from 'chartjs-plugin-zoom';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
@@ -44,24 +43,11 @@ const options = {
         pinch: {
           enabled: true
         },
-        mode: 'x' as 'x'
+        mode: 'x' as "x"
       }
     }
   }
 };
-
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'Augsh',
-  'Octover',
-  'December'
-];
 
 export function LineChart() {
   const allData = useSelector((state: RootState) => state.data);
