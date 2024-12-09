@@ -1,3 +1,4 @@
+import { cookieOption } from '@/constants/data';
 import { ExtentedDataInterface } from '@/pages/dashboard/queries/queries';
 import { createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
@@ -59,15 +60,15 @@ const dataSlice = createSlice({
       state.firstAdd = true;
     },
     activeReducers: (state, action: { payload: string }) => {
-      Cookies.set('active', action.payload, { sameSite: 'None', secure: true });
+      Cookies.set('active', action.payload, cookieOption);
       state.active = action.payload;
     },
     ageReducers: (state, action: { payload: AgeTypes }) => {
-      Cookies.set('age', action.payload, { sameSite: 'None', secure: true });
+      Cookies.set('age', action.payload, cookieOption);
       state.age = action.payload;
     },
     genderReducers: (state, action: { payload: Gender }) => {
-      Cookies.set('gender', action.payload, { sameSite: 'None', secure: true });
+      Cookies.set('gender', action.payload, cookieOption);
       state.gender = action.payload;
     },
     getCookieReducers: (state) => {
@@ -81,11 +82,8 @@ const dataSlice = createSlice({
       state,
       action: { payload: { from: string; to: string } }
     ) => {
-      Cookies.set('from', action.payload.from, {
-        sameSite: 'None',
-        secure: true
-      });
-      Cookies.set('to', action.payload.to, { sameSite: 'None', secure: true });
+      Cookies.set('from', action.payload.from, cookieOption);
+      Cookies.set('to', action.payload.to, cookieOption);
       state.date = {
         from: action.payload.from,
         to: action.payload.to

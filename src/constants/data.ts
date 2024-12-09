@@ -1,4 +1,5 @@
 import { NavItem } from '@/types';
+import {CookieAttributes} from 'node_modules/@types/js-cookie';
 
 export const navItems: NavItem[] = [
   {
@@ -14,3 +15,6 @@ export const navItems: NavItem[] = [
     label: 'Logout'
   }
 ];
+
+export const cookieOption:CookieAttributes = { sameSite: 'Lax', secure: false }
+
